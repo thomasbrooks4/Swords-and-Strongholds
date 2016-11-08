@@ -21,7 +21,38 @@ public class SwordCard :Card {
 	// THEN move either left or right based on first direction
 	// Ex: If they move up or down first then they can move right or left
 	// OR if they move left or right first then they can move up or down
-	public override void PlayCard() {
+	public override void PlayCard(Piece piece) {
+		Point location = piece.getPosition();
+		
+		//value to determine the first direction moved
+		int xLocation = location.GetX();
+		
+		//Array of possible spaces to move to
+		Point[] possible = new Point[4];
+		
+		//moving rows shifts TWO indices, cols only shifts ONE
+		possible[0] = new point(location.GetX()+2, location.GetY());	
+		possible[1] = new point(location.GetX(), location.GetY()+1);	
+		possible[2] = new point(location.GetX()-2, location.GetY());
+		possible[3] = new point(location.GetX(), location.GetY()-1);
+		
+		//TODO Receive coordinates from board -> (newX, newY)
+		location = location;//returned location -- replace location
+		piece.SetPosition(location.GetX(), location.GetY());//need this to redraw the piece
+		//set 2 possible locations to out of bounds to avoid comparison
+		possible[2].SetPoint(-1, -1);
+		possible[3].SetPoint(-1, -1);
+		
+		if(xLocation != location.GetX()){//x changed after first move
+			possible[0] = new point(location.GetX(), location.GetY()+1);
+			possible[1] = new point(location.GetX(), location.GetY()-1);
+		}
+		else{//x did not change after first move
+			possible[0] = new point(location.GetX()+2, location.GetY());
+			possible[1] = new point(location.GetX()-2, location.GetY());
+		}
+		location = location;//returned location -- replace location
+		piece.SetPosition(location.GetX(), location.GetY());
 		
 	}
 }

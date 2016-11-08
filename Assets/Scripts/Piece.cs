@@ -68,6 +68,14 @@ public class Point {
 		x = a;
 		y = b;
 	}
+	
+	public int GetX(){
+		return x;
+	}
+	
+	public int GetY(){
+		return y;
+	}
 }
 
 // This class will be specific to a controllable player
