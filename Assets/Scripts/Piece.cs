@@ -5,7 +5,7 @@ public class Piece : MonoBehaviour {
 	bool isGrey = true;
 	bool isDead = false;
 	bool isSelected = false;
-	bool isStronghold = false;
+	public bool isStronghold = false;
 
 	Point position;
 
@@ -64,9 +64,22 @@ public class Point {
 	int x;
 	int y;
 
+    public Point(int newX, int newY) {
+        x = newX;
+        y = newY;
+    }
+
 	public void SetPoint(int a, int b) {
 		x = a;
 		y = b;
+	}
+	
+	public int GetX(){
+		return x;
+	}
+	
+	public int GetY(){
+		return y;
 	}
 }
 
