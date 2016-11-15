@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class Piece : MonoBehaviour {
-	bool isGrey = true;
-	bool isDead = false;
-	bool isSelected = false;
+	public bool isGrey = true;
+	public bool isDead = false;
+	public bool isSelected = false;
 	public bool isStronghold = false;
 
 	Point position;
@@ -49,8 +49,8 @@ public class Piece : MonoBehaviour {
 	// position instead of gradually moving there
 	// During the game loop, the set position will be locked to the
 	// surrounding intersections
-	public void SetPosition(int x, int y) {
-		position.SetPoint (x, y);
+	public void SetPosition(Point p) {
+		position.SetPoint (p);
 	}
 
 	// Takes piece out of board and labels as dead
@@ -69,9 +69,9 @@ public class Point {
         y = newY;
     }
 
-	public void SetPoint(int a, int b) {
-		x = a;
-		y = b;
+	public void SetPoint(Point p) {
+		x = p.GetX();
+		y = p.GetY();
 	}
 	
 	public int GetX(){

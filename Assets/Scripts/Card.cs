@@ -162,13 +162,12 @@ public class Deck {
 	// Shuffles cards
 	public void Shuffle () {
         int a, b;
-        Random rnd = new Random();
         Card temp;
         //increase if deck isn't shuffled enough
         for (int i = 0; i < 50; i++)
         {
-            a = rnd.Next(0, 30);
-            b = rnd.Next(0, 30);
+            a = Random.Range(0, 30);
+            b = Random.Range(0, 30);
             temp = maindeck[a];
             maindeck[a] = maindeck[b];
             maindeck[b] = temp;
@@ -202,7 +201,7 @@ public class Hand {
 
 	Card[] hand;
 
-	Hand () {
+	public Hand () {
 		hand = new Card[HAND_SIZE];
 	}
 
