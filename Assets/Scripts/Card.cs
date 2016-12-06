@@ -38,10 +38,10 @@ public class SwordCard :Card {
 		
 		//TODO Receive coordinates from board -> (newX, newY)
 		location = location;//returned location -- replace location
-		piece.SetPosition(location.GetX(), location.GetY());//need this to redraw the piece
+		piece.SetPosition(new Point(location.GetX(), location.GetY()));//need this to redraw the piece
 		//set 2 possible locations to out of bounds to avoid comparison
-		possible[2].SetPoint(-1, -1);
-		possible[3].SetPoint(-1, -1);
+		possible[2].SetPoint(new Point(-1, -1));
+		possible[3].SetPoint(new Point(-1, -1));
 		
 		if(xLocation != location.GetX()){//x changed after first move
 			possible[0] = new Point(location.GetX(), location.GetY()+1);
@@ -52,7 +52,7 @@ public class SwordCard :Card {
 			possible[1] = new Point(location.GetX()-2, location.GetY());
 		}
 		location = location;//returned location -- replace location
-		piece.SetPosition(location.GetX(), location.GetY());
+		piece.SetPosition(new Point(location.GetX(), location.GetY()));
 		
 	}
 }
@@ -83,7 +83,7 @@ public class StrongholdCard :Card {
         Point returnpos = new Point(0, 0);
         if (true)//compare returnpos to array elements
             //move piece to that square
-            piece.SetPosition(returnpos.GetX(), returnpos.GetY());
+            piece.SetPosition(new Point(returnpos.GetX(), returnpos.GetY()));
         else
         {
             //do nothing;
@@ -135,8 +135,8 @@ public class DiplomacyCard :Card {
         else
         {
             Point temp = piece.GetPosition();
-            piece.SetPosition(enemyPiece.GetPosition().GetX(), enemyPiece.GetPosition().GetX());
-            enemyPiece.SetPosition(temp.GetX(), temp.GetY());
+            piece.SetPosition(new Point(enemyPiece.GetPosition().GetX(), enemyPiece.GetPosition().GetX()));
+            enemyPiece.SetPosition(new Point(temp.GetX(), temp.GetY()));
         }
     }
 }
