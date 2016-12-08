@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 	const int HAND_AMOUNT = 3;
@@ -14,9 +15,11 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		board = new Board();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+   // Update is called once per frame
+   void Update() {
+      if (Input.GetKey(KeyCode.Escape)) {
+         SceneManager.LoadScene("Esc Menu");
+      }
+   }
 }
