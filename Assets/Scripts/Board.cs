@@ -57,13 +57,17 @@ public class Board : MonoBehaviour {
          List<Intersection> IntersectionBoardRows = new List<Intersection>();
 
          for (int j = 0; j < Board_Y + 1; j++) {
-            Intersection _intersection = ((GameObject)Instantiate(
+                Intersection _intersection = ((GameObject)Instantiate(
                                             IntersectionPrefab,
                                             new Vector3(i - Mathf.Floor(Board_X / 2) - 0.5f, 0.5f, -j + Mathf.Floor(Board_X / 2) + 0.5f),
                                             Quaternion.Euler(0, 0, 0))).GetComponent<Intersection>();
-
-            _intersection.coordinates = new Vector3(i, 0, j);
-            IntersectionBoardRows.Add(_intersection);
+                if (i == 0 || i == 6 || j == 0 || j == 8)
+                {
+                    //_intersection.GetComponentInChildren<MeshRenderer>().enabled = false;
+                }
+                _intersection.coordinates = new Vector3(i, 0, j);
+                IntersectionBoardRows.Add(_intersection);
+                
          }
          IntersectionBoard.Add(IntersectionBoardRows);
       }

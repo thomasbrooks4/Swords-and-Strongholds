@@ -6,11 +6,11 @@ public class Intersection : Space {
    bool isTraversable = false;
 
    void OnMouseEnter() {
-      transform.GetComponent<Renderer>().material.color = Color.red;
+      //transform.GetComponent<Renderer>().material.color = Color.red;
    }
 
    void OnMouseExit() {
-      transform.GetComponent<Renderer>().material.color = BoardColor;
+      //transform.GetComponent<Renderer>().material.color = BoardColor;
    }
 
    // Only applicable function call since there are no renderer components to intersection prefabs
